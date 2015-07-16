@@ -61,7 +61,7 @@ chrome(){
 	del_stopped chrome
 
 	docker run -d \
-		--memory 5gb \
+		--memory 1gb \
 		--net host \
 		-v /etc/localtime:/etc/localtime:ro \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -74,7 +74,7 @@ chrome(){
 		--device /dev/dri \
 		--device /dev/video0 \
 		--name chrome \
-		jess/chrome --user-data-dir=/data --force-device-scale-factor=1 "$@"
+		jess/chrome --user-data-dir=/data --no-sandbox --force-device-scale-factor=1 "$@"
 
 	# exit current shell
 	exit 0
